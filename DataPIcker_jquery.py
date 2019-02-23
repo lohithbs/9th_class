@@ -1,0 +1,10 @@
+from selenium import webdriver
+driver=webdriver.Chrome()
+driver.get('https://jqueryui.com/datepicker/')
+driver.maximize_window()
+driver.implicitly_wait(10)
+ele=driver.find_element_by_tag_name("iframe")
+driver.switch_to.frame(ele)
+driver.find_element_by_id("datepicker").click()
+driver.switch_to.default_content()
+driver.find_element_by_xpath("//a[text()='Draggable']").click()
